@@ -1,1 +1,1 @@
-# zombieAppSync
+# zombieAWSAppSync
