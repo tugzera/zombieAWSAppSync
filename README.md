@@ -1,13 +1,13 @@
 # zombieAwsAppSync
 
-#Run
+# Run
 
 yarn install
 
 yarn start
 
-#Android
+# Android
 react-native run-android 
 
-#IOS
+# IOS
 react-native run-ios
