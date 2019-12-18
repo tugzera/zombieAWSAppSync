@@ -20,6 +20,7 @@
     "aws-appsync-auth-link": "^2.0.1",
     "aws-appsync-react": "^3.0.2",
     "aws-appsync-subscription-link": "^2.0.1",
+    "graphql-tag": "^2.10.1",
     "react": "16.9.0",
     "react-apollo": "^2.5.8",
     "react-native": "0.61.5",
