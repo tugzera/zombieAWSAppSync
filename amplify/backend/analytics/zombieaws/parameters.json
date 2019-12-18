@@ -1,0 +1,20 @@
+{
+    "appName": "zombieaws",
+    "roleName": "pinpointLambdaRoleaeb321e3",
+    "cloudWatchPolicyName": "cloudWatchPolicyaeb321e3",
+    "pinpointPolicyName": "pinpointPolicyaeb321e3",
+    "authPolicyName": "pinpoint_amplify_aeb321e3",
+    "unauthPolicyName": "pinpoint_amplify_aeb321e3",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

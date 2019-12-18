@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "zombieaws",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authzombieaws16b367a6",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

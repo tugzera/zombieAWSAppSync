@@ -1,0 +1,6 @@
+type Zombie @model {
+  id: ID!
+  name: String!
+  hit_points: Int
+  turn_date: AWSTimestamp
+}
