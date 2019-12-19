@@ -18,20 +18,7 @@ import Surface from '../../components/StyledSurface';
 import {Spacing} from '../../theme';
 // import Theme from '../../theme/Light';
 
-import client from '../../services/client'
-import gql from 'graphql-tag';
-
 const ZombieStoreScreen = () => {
-
-  (async () => { 
-    await client.hydrated();
-  
-    const result = await client.query({
-      query: gql(listZombies),
-      fetchPolicy: 'cache-and-network',
-    });
-    console.tron.log('aq', result);
-  })();
   // const dispatch = useDispatch();
 
   // const {onChangeText, onError, values} = useForm({

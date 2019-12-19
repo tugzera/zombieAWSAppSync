@@ -1,5 +1,6 @@
 import AWSAppSyncClient from 'aws-appsync';
 import {Hermes} from 'apollo-cache-hermes';
+import {Auth} from 'aws-amplify';
 
 import config from '../../aws-exports';
 const cache = new Hermes({verbose: true});

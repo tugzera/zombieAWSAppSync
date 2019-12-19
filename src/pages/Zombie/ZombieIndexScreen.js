@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {FlatList, TouchableOpacity, Text} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
-// import * as Zombie from '../../stores/zombies/actions';
+import * as Zombie from '../../stores/modules/zombies/actions';
 
 import Surface from '../../components/StyledSurface';
 import Divider from '../../components/StyledDivider';
@@ -11,23 +11,24 @@ import ListEmpty from '../../components/StyledListEmpty';
 import Loading from '../../components/StyledLoading';
 import HeaderButton from '../../components/StyledHeaderButton';
 
+
+
 const ZombieIndexScreen = () => {
-  // const dispatch = useDispatch();
-  // const zombies = useSelector(value => value.zombies);
+  const dispatch = useDispatch();
+  const zombies = useSelector(value => value.zombies);
+  const {isLoading, refreshing, items} = zombies;
 
-  // const {isLoading, refreshing, items} = zombies;
+  useEffect(() => {
+    dispatch(Zombie.index());
+  }, []);
 
-  // useEffect(() => {
-  //   dispatch(Zombie.index());
-  // }, []);
+  const onRefresh = () => {
+    if (isLoading) {
+      return;
+    }
 
-  // const onRefresh = () => {
-  //   if (isLoading) {
-  //     return;
-  //   }
-
-  //   dispatch(Zombie.refresh());
-  // };
+    dispatch(Zombie.refresh());
+  };
 
   // const onDelete = id => {
   //   if (isLoading) {
@@ -37,29 +38,29 @@ const ZombieIndexScreen = () => {
   //   dispatch(Zombie.destroy(id));
   // };
 
-  // const renderLoading = () => {
-  //   return isLoading === true && <Loading />;
-  // };
+  const renderLoading = () => {
+    return isLoading === true && <Loading />;
+  };
 
-  // const renderListEmpty = () => {
-  //   return isLoading === false && <ListEmpty title="Sem registros!" />;
-  // };
+  const renderListEmpty = () => {
+    return isLoading === false && <ListEmpty title="Sem registros!" />;
+  };
 
-  // const renderDivider = () => {
-  //   return <Divider />;
-  // };
+  const renderDivider = () => {
+    return <Divider />;
+  };
 
-  // const renderItem = ({item}) => {
-  //   return (
-  //     <TouchableOpacity onPress={() => onDelete(item.id)}>
-  //       <ListItem title={item.name} subtitle={item.id} />
-  //     </TouchableOpacity>
-  //   );
-  // };
+  const renderItem = ({item}) => {
+    return (
+      <TouchableOpacity onPress={() => onDelete(item.id)}>
+        <ListItem title={item.name} subtitle={item.id} />
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <Surface>
-      {/* <FlatList
+      <FlatList
         data={items}
         initialNumToRender={25}
         keyExtractor={item => String(item.id)}
@@ -69,8 +70,7 @@ const ZombieIndexScreen = () => {
         onRefresh={onRefresh}
         refreshing={refreshing}
         renderItem={renderItem}
-      /> */}
-      <Text>OK</Text>
+      />
     </Surface>
   );
 };
